@@ -15,11 +15,20 @@ import { useMediaQuery } from "react-responsive";
 import Link from 'next/link';
 
 
-
 const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
 
   
-  
+  const [element, setElement] = useState<HTMLElement | null>(null);
+
+  // const isDesktop:boolean = useMediaQuery({ minWidth: 992 })
+  // const isTablet:boolean = useMediaQuery({ minWidth: 768, maxWidth: 991 })
+  const isMobile:boolean = useMediaQuery({ maxWidth: 767 })
+  // const isNotMobile:boolean = useMediaQuery({ minWidth: 768 })
+   // Hydration failed because the initial UI does not match what was rendered on the server.
+    // 에러로 인해 추가
+  //   if (!element) {
+  //     return <></>;
+  //  }
 
   return (
     <div className={styles.container}>
@@ -30,8 +39,20 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
       </Head>
 
       {/* <Counter ></Counter> */}
-      <Product ></Product>
-      <BankList></BankList>
+      <div className={styles.contentWrap}>
+        <div className={styles.leftContent}>
+          hihi
+          <BankList></BankList>
+          {/* <Product ></Product> */}
+        </div>
+        <div className={styles.rightContent}>
+        </div>
+      </div>  
+{/* 
+      {isDesktop && <div>Desktop or laptop</div>}
+      {isTablet && <div>Tablet</div>}
+      {isMobile && <div>Mobile</div>}
+      {isNotMobile && <div>Not mobile (desktop or laptop or tablet)</div>} */}
 
       {/* {isDesktop && <div>Desktop or laptop</div>}
       {isTablet && <div>Tablet</div>}

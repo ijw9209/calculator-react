@@ -2,6 +2,27 @@
   padding: 0 2rem;
 }
 
+.contentWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: max-content;
+  width: 100vw;
+}
+
+.leftContent {
+  flex-direction: column;
+  /* width: 15rem; */
+  margin-right: 5rem;
+}
+
+.rightContent {
+  display: flex;
+  flex-direction: column;
+  width: 31.25rem;
+  position: relative;
+}
+
 .main {
   min-height: 100vh;
   padding: 4rem 0;

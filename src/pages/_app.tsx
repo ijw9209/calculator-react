@@ -7,7 +7,12 @@ import styles from '../styles/App.module.css'
 import wrapper from '../app/store';
 import Link from 'next/link'
 
+import {useState } from 'react';
+import { useMediaQuery } from "react-responsive";
+
 function App({ Component, pageProps }: AppProps) {
+
+
   return (
     <>
       <header className={styles.headerWrap}>
