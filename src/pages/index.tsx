@@ -41,7 +41,6 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
       {/* <Counter ></Counter> */}
       <div className={styles.contentWrap}>
         <div className={styles.leftContent}>
-          hihi
           <BankList></BankList>
           {/* <Product ></Product> */}
         </div>

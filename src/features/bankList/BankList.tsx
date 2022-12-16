@@ -30,12 +30,21 @@ export function BankList() {
     }, [])
 
     return (
-        <div style={{ height: 300, width: '100%' }}>
+        <div style={{width: '100%' }}>
             {/* <DataGrid rows={rows} columns={columns} /> */}
+            {/* 사용법 : https://mui.com/material-ui/react-list/#folder-list */}
             <List
                  sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-                 subheader={<ListSubheader>Settings</ListSubheader>}
+                 subheader={<ListSubheader>은행 목록</ListSubheader>}
             >
+                 <ListItem>
+                    {/* 아이콘 영역 */}
+                 <ListItemText id="switch-list-label-wifi" primary="신한은행" />
+                {/*  */}
+                <Switch 
+                     edge="end"
+                />
+                 </ListItem>
                  <ListItem>
                     {/* 아이콘 영역 */}
                  <ListItemText id="switch-list-label-wifi" primary="신한은행" />
