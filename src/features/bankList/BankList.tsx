@@ -10,6 +10,8 @@ import Switch from '@mui/material/Switch';
 
 import { DataGrid, GridRowsProp , GridColDef ,GridToolbar } from '@mui/x-data-grid';
 
+
+
 export function BankList() {
 
     const rows: GridRowsProp = [
@@ -27,10 +29,14 @@ export function BankList() {
     const bankLists = useAppSelector((state) => state.bankList);
     // console.log(bankLists.result);
     // debugger;
+    
+    // bankLists.map(item => console.log(item));
 
     useEffect(() => {
         dispatch( bankListAPI());
     }, [])
+
+
 
     return (
         <div style={{width: '100%' }}>
@@ -39,7 +45,7 @@ export function BankList() {
             <List
                  sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
                  subheader={<ListSubheader>은행 목록</ListSubheader>}
-            >
+                >
                  <ListItem>
                     {/* 아이콘 영역 */}
                  <ListItemText id="switch-list-label-wifi" primary="신한은행" />
