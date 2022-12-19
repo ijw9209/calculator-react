@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
-import { bankList } from './bankListSlice';
-import { useAppDispatch } from '../../app/hooks';
+import { bankListAPI } from './bankListSlice';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -24,9 +24,12 @@ export function BankList() {
     ];
 
     const dispatch = useAppDispatch();
+    const bankLists = useAppSelector((state) => state);
+    console.log(bankLists);
+    // debugger;
 
     useEffect(() => {
-        dispatch(bankList());
+        dispatch( bankListAPI());
     }, [])
 
     return (

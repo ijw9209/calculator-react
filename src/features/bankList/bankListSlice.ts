@@ -1,26 +1,27 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
 
 export interface BankListState { 
    bankList : Object
 }
 
-const initialState : BankListState = {
-   bankList : {},
+export const bankListInit : BankListState = {
+   bankList : [],
 }
 
-export const bankList = createAsyncThunk('api/bankListStatus', async (userId) => {
+export const bankListAPI = createAsyncThunk('api/bankListStatus', async (userId) => {
 
     try {
       console.log(`${process.env.NEXT_PUBLIC_URL}`);
       console.log(userId);
         // cors 해결해 주는 사이트로 해결
-    //   const response = await axios.get(`https://cors-anywhere.herokuapp.com/http://finlife.fss.or.kr/finlifeapi/savingProductsSearch.json?auth={b5fb67b9107d1fdaada51c9d9cbcf2de}&topFinGrpNo=020000&pageNo=1`);
+      //const response = await axios.get(`https://cors-anywhere.herokuapp.com/http://finlife.fss.or.kr/finlifeapi/savingProductsSearch.json?auth={b5fb67b9107d1fdaada51c9d9cbcf2de}&topFinGrpNo=020000&pageNo=1`);
       // 다른 방법 찾기
       const response = await axios.get(`finlifeapi/companySearch.json?auth=${process.env.NEXT_PUBLIC_CALCULATOR_BANK_API_KEY}&topFinGrpNo=020000&pageNo=1`, {});
       console.log(response);
+      console.log(response.data);
       return response.data;
     } catch(err) {
         console.log(err);
@@ -32,21 +33,29 @@ export const bankList = createAsyncThunk('api/bankListStatus', async (userId) =>
 ///ts 는 builder 로 작성
 export const bankListSlice = createSlice({
     name : "bankList",
-    initialState, 
+    initialState : {...bankListInit}, 
     reducers : {},
     extraReducers : (builder) => {
       builder
-        .addCase(bankList.pending, (state , {payload} ) => {
+        //호출전
+        .addCase(bankListAPI.pending, (state , {payload} ) => {
           console.log(state);
           console.log(payload);
+          console.log(bankListInit);
         })
-        .addCase(bankList.fulfilled, (state , action ) => {
+        //호출성공
+        .addCase(bankListAPI.fulfilled, (state , action ) => {
+            console.log(bankListAPI);
             console.log(state);
             console.log(action.payload);
-            return action.payload;
+            // return action.payload;
             // state.bankList.push(action.payload)
+            // state.bankList = action.payload;
+            console.log(current(state));
+            // debugger;
         })
-        .addCase(bankList.rejected, (state) => {})
+        //호출실패
+        .addCase(bankListAPI.rejected, (state) => {})
     }
   })
   
