@@ -24,8 +24,8 @@ export function BankList() {
     ];
 
     const dispatch = useAppDispatch();
-    const bankLists = useAppSelector((state) => state);
-    console.log(bankLists);
+    const bankLists = useAppSelector((state) => state.bankList);
+    // console.log(bankLists.result);
     // debugger;
 
     useEffect(() => {

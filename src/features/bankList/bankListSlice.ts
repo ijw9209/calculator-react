@@ -22,7 +22,8 @@ export const bankListAPI = createAsyncThunk('api/bankListStatus', async (userId)
       const response = await axios.get(`finlifeapi/companySearch.json?auth=${process.env.NEXT_PUBLIC_CALCULATOR_BANK_API_KEY}&topFinGrpNo=020000&pageNo=1`, {});
       console.log(response);
       console.log(response.data);
-      return response.data;
+      //리턴할때 await 붙여줘야 데이터가 proxy로 안보임
+      return await response.data;
     } catch(err) {
         console.log(err);
       return err;
@@ -47,10 +48,10 @@ export const bankListSlice = createSlice({
         .addCase(bankListAPI.fulfilled, (state , action ) => {
             console.log(bankListAPI);
             console.log(state);
-            console.log(action.payload);
+            console.log(action.payload.result.baseList);
             // return action.payload;
             // state.bankList.push(action.payload)
-            // state.bankList = action.payload;
+            state.bankList = action.payload.result.baseList;
             console.log(current(state));
             // debugger;
         })
