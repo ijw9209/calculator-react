@@ -45,6 +45,8 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
           {/* <Product ></Product> */}
         </div>
         <div className={styles.rightContent}>
+
+          
         </div>
       </div>  
 {/* 

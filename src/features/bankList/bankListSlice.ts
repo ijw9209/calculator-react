@@ -3,8 +3,21 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { createSlice, current } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
 
+// export interface BankListState { 
+//    bankList : Object;
+// }
+
+interface baseListsProps {
+  dcls_month:string;
+  fin_co_no:string;
+  kor_co_nm:string;
+  dcls_chrg_man:string;
+  homp_url:string;
+  cal_tel:string;
+}
+
 export interface BankListState { 
-   bankList : Object
+   bankList : baseListsProps[];
 }
 
 export const bankListInit : BankListState = {

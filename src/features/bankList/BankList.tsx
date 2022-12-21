@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect , useState} from 'react';
 import { bankListAPI } from './bankListSlice';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 
@@ -14,6 +14,9 @@ import { DataGrid, GridRowsProp , GridColDef ,GridToolbar } from '@mui/x-data-gr
 
 export function BankList() {
 
+    let [bankCheckList, setBankCheckList] = useState([]);
+    let [checkedList, setCheckedList] = useState({});
+
     const rows: GridRowsProp = [
         { id: 1, col1: 'Hello', col2: 'World' },
         { id: 2, col1: 'DataGridPro', col2: 'is Awesome' },
@@ -27,13 +30,16 @@ export function BankList() {
 
     const dispatch = useAppDispatch();
     const bankLists = useAppSelector((state) => state.bankList);
-    // console.log(bankLists.result);
+    
     // debugger;
     
-    // bankLists.map(item => console.log(item));
+    // bankLists.map((item:any)=> console.log(item));
 
     useEffect(() => {
         dispatch( bankListAPI());
+        // setBankCheckList(bankLists);
+        // console.log(bankLists);
+        // console.log(...bankCheckList);
     }, [])
 
 
@@ -46,22 +52,20 @@ export function BankList() {
                  sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
                  subheader={<ListSubheader>은행 목록</ListSubheader>}
                 >
-                 <ListItem>
+            
+                {bankLists.bankList.map((item,index) => {
+                 
+                 return (
+                 <ListItem key={index}>
                     {/* 아이콘 영역 */}
-                 <ListItemText id="switch-list-label-wifi" primary="신한은행" />
-                {/*  */}
-                <Switch 
-                     edge="end"
-                />
+                    <ListItemText id="switch-list-label-wifi" primary={item.kor_co_nm} />
+                    <Switch 
+                         edge="end"
+                         checked={true}
+                    />
                  </ListItem>
-                 <ListItem>
-                    {/* 아이콘 영역 */}
-                 <ListItemText id="switch-list-label-wifi" primary="신한은행" />
-                {/*  */}
-                <Switch 
-                     edge="end"
-                />
-                 </ListItem>
+                 )
+                })}
             </List>
         </div>
     );
