@@ -21,7 +21,7 @@ function App({ Component, pageProps }: AppProps) {
             <Link href="/">Home</Link>
             <Link href="/about">Blog</Link>
             <Link href="/blog/hello-world">Work</Link>
-            <Link href="#">About</Link>
+            <Link href="/pdf">PDF</Link>
             <div className={styles.dot}></div>
         </nav>
       </header>
