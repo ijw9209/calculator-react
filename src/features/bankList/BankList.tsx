@@ -60,8 +60,6 @@ export function BankList() {
                  <ListItem key={index}>
                     {/* 아이콘 영역 */}
                     <ListItemText id="switch-list-label-wifi" primary={item.kor_co_nm} />
-                    {/* <ListItemIcon>
-                    </ListItemIcon> */}
                     <Switch 
                          edge="end"
                          checked={true}
