@@ -6,6 +6,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListItemText from '@mui/material/ListItemText';
+// import ListItemIcon from '@mui/material/ListItemIcon';
 import Switch from '@mui/material/Switch';
 
 import { DataGrid, GridRowsProp , GridColDef ,GridToolbar } from '@mui/x-data-grid';
@@ -59,6 +60,8 @@ export function BankList() {
                  <ListItem key={index}>
                     {/* 아이콘 영역 */}
                     <ListItemText id="switch-list-label-wifi" primary={item.kor_co_nm} />
+                    {/* <ListItemIcon>
+                    </ListItemIcon> */}
                     <Switch 
                          edge="end"
                          checked={true}
