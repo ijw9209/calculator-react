@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import { Counter } from '../features/counter/Counter'
 import { Product } from '../features/product/Product'; 
 import { BankList } from '../features/bankList/BankList';
+import { DepositList } from '../features/deposit/DepositList';
 import type { NextPage, InferGetServerSidePropsType, GetServerSideProps } from 'next';
 import { decrement, increment } from '../features/counter/counterSlice';
 import wrapper from '../app/store';
@@ -45,7 +46,7 @@ const Home: NextPage = (props: InferGetServerSidePropsType<typeof getServerSideP
           {/* <Product ></Product> */}
         </div>
         <div className={styles.rightContent}>
-
+          <DepositList></DepositList>
           
         </div>
       </div>  

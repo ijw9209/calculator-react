@@ -2,6 +2,7 @@ import { AnyAction, configureStore, CombinedState , Reducer, getDefaultMiddlewar
 import counterReducer, {CounterState} from '../features/counter/counterSlice'
 import productReducer, {ProductState} from '../features/product/productSlice'
 import bankListReducer, { BankListState } from '../features/bankList/bankListSlice';
+import depositListReducer , {DepositListState } from '../features/deposit/depositListSlice';
 
 import { combineReducers } from '@reduxjs/toolkit';
 //next-redux-wrapper 추가
@@ -16,6 +17,7 @@ interface ReducerStates {
     counter : CounterState;
     product : ProductState;
     bankList : BankListState;
+    depositList : DepositListState;
 }
 
 
@@ -35,6 +37,7 @@ const rootReducer = (state: ReducerStates, action: AnyAction): CombinedState<Red
           counter: counterReducer,
           product: productReducer,
           bankList : bankListReducer,
+          depositList : depositListReducer,
           // [bankListApi.reducerPath] : bankListApi.reducer
           // [productApi.reducerPath] : productApi.reducer,
           // [numberSlice.name]: numberSlice.reducer
