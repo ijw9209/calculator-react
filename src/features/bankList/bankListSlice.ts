@@ -27,8 +27,8 @@ export const bankListInit : BankListState = {
 export const bankListAPI = createAsyncThunk('api/bankListStatus', async (userId) => {
 
     try {
-      console.log(`${process.env.NEXT_PUBLIC_URL}`);
-      console.log(userId);
+      // console.log(`${process.env.NEXT_PUBLIC_URL}`);
+      // console.log(userId);
         // cors 해결해 주는 사이트로 해결
       //const response = await axios.get(`https://cors-anywhere.herokuapp.com/http://finlife.fss.or.kr/finlifeapi/savingProductsSearch.json?auth={b5fb67b9107d1fdaada51c9d9cbcf2de}&topFinGrpNo=020000&pageNo=1`);
       // 다른 방법 찾기

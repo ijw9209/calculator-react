@@ -2,7 +2,9 @@ import type { NextPage, InferGetServerSidePropsType, GetServerSideProps } from '
 import PDFMerger from 'pdf-merger-js/browser';
 import React, { useEffect, useState } from 'react';
 
-import styles from '../styles/Pdf.module.css'
+import styles from '../styles/Pdf.module.css';
+
+
 
 const Pdf: NextPage = () => {
 
